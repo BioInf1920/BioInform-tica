@@ -1,0 +1,18 @@
+#Procura de nome,descrição e sequência do gene
+from Bio import Entrez
+from Bio import SeqIO
+Entrez.email = "ritamachado99@live.com.pt"
+handle = Entrez.efecth(db="nucleotide", rettype="gb", retmZde="text", ide="15081")
+record=SeqIO.read(handle,"genbank")
+handle.close()
+print(record.id)
+print(record.name)
+print(record.description)
+print(repr(record.seq))
+
+#Procura de artigos
+from Bio import Entrez
+handle=Entrez.esearch(db='pubmed', term='H3f3b')
+record=Entrez.read(handle)
+handle.close()
+print(record)
